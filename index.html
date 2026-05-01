@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catherine Di Vita</title>
+  <meta name="description" content="Catherine Di Vita — educator and leader dedicated to innovation, lifelong learning, curriculum development, design thinking, and educational leadership." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f2ec;
+      --text: #1c1917;
+      --muted: #6b6662;
+      --soft: #ffffff99;
+      --line: rgba(0, 0, 0, 0.1);
+      --dark: #1c1917;
+      --accent: #b9d7c0;
+      --accent-soft: #dfe9dd;
+      --cream: #fbf8f2;
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    body::selection { background: rgba(185, 215, 192, 0.6); }
+
+    a { color: inherit; text-decoration: none; }
+
+    p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 1rem;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 600;
+      margin: 0;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 8vw, 7rem);
+      line-height: 0.96;
+    }
+
+    h2 {
+      font-size: clamp(2.6rem, 5vw, 4.8rem);
+      line-height: 1.05;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+      line-height: 1.15;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: rgba(28, 25, 23, 0.48);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.32em;
+      font-weight: 700;
+    }
+
+    .dark .eyebrow { color: rgba(255,255,255,0.45); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(28,25,23,0.18);
+      padding: 0.9rem 1.25rem;
+      font-size: 0.93rem;
+      font-weight: 600;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary { background: var(--dark); color: white; border-color: var(--dark); }
+    .btn.light { background: white; color: var(--dark); border-color: white; }
+
+    header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      border-bottom: 1px solid var(--line);
+      background: rgba(246, 242, 236, 0.86);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      color: rgba(28,25,23,0.62);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-weight: 700;
+    }
+
+    nav a { transition: color 160ms ease; }
+    nav a:hover { color: var(--text); }
+
+    .section { padding: 6.5rem 0; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 10rem 0 6rem;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 34rem;
+      height: 34rem;
+      border-radius: 999px;
+      background: rgba(185, 215, 192, 0.42);
+      filter: blur(70px);
+      left: 48%;
+      top: 6rem;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .grid-two {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-copy p.lead {
+      margin-top: 1.8rem;
+      max-width: 680px;
+      color: rgba(28,25,23,0.68);
+      font-size: clamp(1.08rem, 2vw, 1.35rem);
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      margin-top: 2.2rem;
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .portrait-card {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.5);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: 0 26px 80px rgba(28,25,23,0.16);
+    }
+
+    .portrait-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 22px;
+      object-fit: cover;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .copy-stack p { margin: 0 0 1.35rem; font-size: 1.05rem; }
+
+    .dark-section {
+      background: var(--dark);
+      color: white;
+      margin: 0;
+    }
+
+    .section-header {
+      margin-bottom: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 2rem;
+    }
+
+    .section-header p:not(.eyebrow) {
+      max-width: 420px;
+      color: rgba(255,255,255,0.58);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .card {
+      border-radius: 24px;
+      padding: 1.6rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .card .number {
+      margin: 0 0 2rem;
+      color: var(--accent);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 3rem;
+      line-height: 1;
+    }
+
+    .card p { color: rgba(255,255,255,0.62); font-size: 0.94rem; }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .value-card {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.48);
+      border-radius: 24px;
+      padding: 1.8rem;
+      box-shadow: 0 12px 38px rgba(28,25,23,0.055);
+    }
+
+    .value-card p { margin-bottom: 0; }
+
+    .philosophy-box {
+      border-radius: var(--radius);
+      background: var(--accent-soft);
+      padding: clamp(2rem, 5vw, 4rem);
+    }
+
+    .philosophy-copy {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      border-radius: var(--radius);
+      background: var(--dark);
+      color: white;
+      padding: clamp(2rem, 5vw, 4rem);
+    }
+
+    .contact-box p { color: rgba(255,255,255,0.64); }
+
+    .contact-links {
+      display: grid;
+      align-content: end;
+      gap: 1rem;
+    }
+
+    .contact-links a:not(.btn) {
+      color: white;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 1.6rem 0;
+      color: rgba(28,25,23,0.5);
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      nav { display: none; }
+      .grid-two, .about-grid, .contact-box, .philosophy-copy { grid-template-columns: 1fr; }
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero { padding-top: 8rem; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, 1180px); }
+      .card-grid, .values-grid { grid-template-columns: 1fr; }
+      .section { padding: 4.5rem 0; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .header-inner .btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <a href="#profile" class="brand">Catherine Di Vita</a>
+      <nav aria-label="Main navigation">
+        <a href="#profile">Profile</a>
+        <a href="#about">About Me</a>
+        <a href="#skills">Key Skills</a>
+        <a href="#values">Values</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#contact">Contact</a>
+        <a href="https://manu.vision/catdivita/dt-course/preview" target="_blank" rel="noreferrer">My Course</a>
+      </nav>
+      <a class="btn primary" href="#contact">Let’s Connect</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="profile" class="hero">
+      <div class="container grid-two">
+        <div class="hero-copy">
+          <p class="eyebrow">Profile</p>
+          <h1>Hello, I’m Catherine.</h1>
+          <p class="lead">An educator and leader driven by a dedication to innovation and lifelong learning. My passion is designing and facilitating learning projects that empower both individuals and organizations to thrive and grow.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#about">Read More →</a>
+            <a class="btn" href="https://976c61e9-188c-4237-b60c-68ab548f8a75.filesusr.com/ugd/32366f_0a15dc712b8143b2b74208039c728f81.pdf" target="_blank" rel="noreferrer">Download CV</a>
+          </div>
+        </div>
+        <div class="portrait-card">
+          <img src="https://static.wixstatic.com/media/32366f_41d11323088243d890f3bab37c39605a~mv2.png" alt="Catherine Di Vita profile portrait" />
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div>
+          <p class="eyebrow">About Me</p>
+          <h2>My Story</h2>
+        </div>
+        <div class="copy-stack">
+          <p>I have a Bachelor of Education in Physical and Health Education and a Master of Arts in Educational Leadership from McGill University. With six years of experience as a secondary school educator, I’ve gained a deep understanding of curriculum development and teaching principles. My passion for innovation led me to obtain design thinking certificates from IBM and IDEO.</p>
+          <p>Driven by a passion for innovation and guided by a deep commitment to educational excellence, I returned to McGill to pursue a Master of Arts in Educational Leadership, with a focus on change management, mentorship, and community-based learning.</p>
+          <p>Currently, I am proud to be part of the Digital Research Alliance of Canada, where I contribute to maintaining and expanding national Digital Research Infrastructure training operations and strategy. My focus includes Advanced Research Computing, Research Data Management, Research Software, and Cybersecurity.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section dark-section dark">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Key Skills</p>
+            <h2>Learning projects that help people grow.</h2>
+          </div>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <p class="number">01</p>
+            <h3>Project Management</h3>
+            <p>I excel in orchestrating successful initiatives by meticulously overseeing timelines, resources, and stakeholder interests.</p>
+          </article>
+          <article class="card">
+            <p class="number">02</p>
+            <h3>Curriculum Development</h3>
+            <p>Curriculum development is at the core of my career. Understanding the needs, abilities, and interests of each participant has shaped my ability to design and mobilize meaningful curricula.</p>
+          </article>
+          <article class="card">
+            <p class="number">03</p>
+            <h3>Effective Communication</h3>
+            <p>Effective communication is at the root of successful initiatives, through clearly expressing my point of view and actively listening to others.</p>
+          </article>
+          <article class="card">
+            <p class="number">04</p>
+            <h3>Design Thinking</h3>
+            <p>My approach to design thinking centers on fostering creativity and strategic problem-solving through co-creating innovative solutions to complex challenges.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="values" class="section">
+      <div class="container">
+        <p class="eyebrow">Professional Values</p>
+        <h2>A value system grounded in empathy, authenticity, innovation, and courage.</h2>
+        <div class="values-grid">
+          <article class="value-card">
+            <h3>Innovation</h3>
+            <p>Innovation is the driving force behind progress and transformation: the relentless pursuit of new ideas, creative solutions, and fresh perspectives.</p>
+          </article>
+          <article class="value-card">
+            <h3>Empathy</h3>
+            <p>Empathy inspires me to deeply understand another person’s experience, account for the constraints that shape their reality, and set aside assumptions when collaborating.</p>
+          </article>
+          <article class="value-card">
+            <h3>Authenticity</h3>
+            <p>Authenticity is the belief that my actions should be both intuitive and reflective, helping foster trust and build genuine connections.</p>
+          </article>
+          <article class="value-card">
+            <h3>Courage</h3>
+            <p>Courage is the commitment to confront challenges with resilience and resolve, take calculated risks, and champion new ideas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="philosophy" class="section">
+      <div class="container">
+        <div class="philosophy-box">
+          <p class="eyebrow">Philosophy Statement</p>
+          <h2>Every individual deserves to feel empowered.</h2>
+          <div class="philosophy-copy">
+            <p>My educational philosophy is rooted in the conviction that every individual deserves to feel empowered both in their professional journey and in the broader corporate community. I am dedicated to fostering the growth and well-being of my colleagues and peers, where they feel valued and appreciated.</p>
+            <p>I firmly believe that individuals thrive in an environment that celebrates diversity and encourages self-expression. I place great importance on nurturing qualities that define effective leadership, including curiosity and empathy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-box dark">
+          <div>
+            <p class="eyebrow">Get in Touch</p>
+            <h2>Let’s Connect</h2>
+            <p>I’m eager to connect with professionals and collaborators who share a passion for education, innovation, and growth. Whether you have an opportunity to discuss, a project to explore, or ideas to exchange, I welcome the chance to connect.</p>
+          </div>
+          <div class="contact-links">
+            <h4>Connect on <a href="https://ca.linkedin.com/in/catdivita" target="_blank" rel="noreferrer">LinkedIn</a></h4>
+            <p><a class="btn light" href="https://manu.vision/catdivita/dt-course/preview" target="_blank" rel="noreferrer">My Course →</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 by C. Di Vita.</span>
+      <span>Profile, About Me, Key Skills, Professional Values, Philosophy Statement, Contact, and My Course.</span>
+    </div>
+  </footer>
+</body>
+</html>
